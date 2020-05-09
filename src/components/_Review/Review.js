@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 
 class Review extends Component {
 
-    state={ //Create an state to store all of data that user input
-        review: [],
-      }
+  
 
     render() {
         return (

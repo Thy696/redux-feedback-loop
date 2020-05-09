@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 
 class Comment extends Component {
 
-    state={ //Create an state to store all of data that user input
-          comment:'',
-      }
+   
 
     handleNext=()=>{ // handle next button to moving to understanding component
         console.log('Next clicked!')

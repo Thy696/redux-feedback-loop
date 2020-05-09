@@ -14,12 +14,12 @@ import Review from '../_Review/Review'
 
 
 class App extends Component {
-  state={ //Create an state to store all of data that user input
-    feedback :{
-      feeling:'',
-      understanding:'',
-      support:'',
-      comment:'',
+  state = { //Create an state to store all of data that user input
+    feedback: {
+      feeling: '',
+      understanding: '',
+      support: '',
+      comment: '',
     },
     review: [],
   }
@@ -28,7 +28,7 @@ class App extends Component {
     console.log('in componentDidMount', this.props)
   };
 
-  handleChangefor =() =>{
+  handleChangefor = () => {
     console.log('in handleChangefor');
   }
 
@@ -54,16 +54,25 @@ class App extends Component {
 
 
             <Route exact path='/' component={Home} />
-            <Route path='/feeling' component={Feeling} />
-            <Route path='/understanding' component={Understanding} />
-            <Route path='/support' component={Support} />
-            <Route path='/comments' component={Comments} />
-            <Route path='/review' component={Review} />
+            <Route path='/feeling'
+              render={(props) => <Feeling {...props} feeling={this.state.feedback.feeling} />}//sending data from state down component child
+            />
+            <Route path='/understanding'
+              render={(props) => <Feeling {...props} understanding={this.state.feedback.understanding} />}
+            />
+            <Route path='/support'
+              render={(props) => <Feeling {...props} support={this.state.feedback.support} />}
+            />
+            <Route path='/comments'
+              render={(props) => <Feeling {...props} comment={this.state.feedback.comment} />}
+            />
+            <Route path='/review'
+              render={(props) => <Feeling {...props} review={this.state.review} />}
+            />
 
 
           </HashRouter>
         </nav>
-
       </div>
     );
   }

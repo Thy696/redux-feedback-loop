@@ -1,24 +1,35 @@
 import React, { Component } from 'react';
 
 class Feeling extends Component {
-    state = { //Create an state to store all of data that user input
-        feeling: '',
-
+   
+    componentDidMount(){
+        console.log('in feeling',this.props)
     }
 
-    handleNext = () => { // handle next button to moving to understanding component
-        console.log('Next clicked!')
-        this.props.history.push('/understanding');
+ 
+    
+    handleNextButton = ()=>{ // condition for the input field is not been empty
+        // let this.props.feeling = 
+        if(this.props.feeling === ""){
+            alert('This field is requied');
+        }else {
+                console.log('Next clicked!')
+                // handle next button to moving to understanding component
+                this.props.history.push('/understanding');
+        }
+        
     }
-
-
+    
 
     render() {
         return (
             <div>
                 <h1>How are you felling today?</h1>
-                <input type="number" placeholder="Your feeling" />
-                <button onClick={this.handleNext} >Next</button>{/*when the next button is clicked, it will switch to the understanding component*/}
+                <input type="number" placeholder="Your feeling" 
+                onChange = {this.handleChangefor} 
+                value = {this.props.feeling}
+                />
+                <button onClick={this.handleNextButton} >Next</button>{/*when the next button is clicked, it will switch to the understanding component*/}
             </div>
         )
     }

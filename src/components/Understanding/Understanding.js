@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 
 class Understanding extends Component {
-    state = { //Create an state to store all of data that user input
+  
 
-        understanding: '',
-    }
-
-
-        handleNext=() => { // handle next button to moving to support component
-            console.log('Next clicked!')
-            this.props.history.push('/support');
+    handleNextButton = ()=>{ // condition for the input field is not been empty
+        // let this.props.feeling = 
+        if(this.props.feeling === ""){
+            alert('This field is requied');
+        }else {
+                console.log('Next clicked!')
+                // handle next button to moving to understanding component
+                this.props.history.push('/support');
         }
+        
+    }
 
     render() {
             return (
@@ -18,7 +21,7 @@ class Understanding extends Component {
                     <h1>How well are you understanding the content?</h1>
                     <input type="text" />
 
-                    <button onClick={this.handleNext} >Next</button>{/*when the next button is clicked, it will switch to the support component*/}
+                    <button onClick={this.handleNextButton} >Next</button>{/*when the next button is clicked, it will switch to the support component*/}
 
                 </div>
             )
