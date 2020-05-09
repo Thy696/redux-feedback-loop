@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 
 class Support extends Component {
 
-
+    componentDidMount() {
+        console.log('in support', this.props);
+    }
 
 
     handleNextButton = () => { // condition for the input field is not been empty
@@ -13,6 +15,10 @@ class Support extends Component {
             console.log('Next clicked!')
             // handle next button to moving to understanding component
             this.props.history.push('/comments');
+            // this.props.dispatch({
+            //     type:'support',
+            //     payload: this.props.support
+            // })
         }
     }
 
@@ -22,6 +28,8 @@ class Support extends Component {
             <div>
                 <h1>How well are you being supported?</h1>
                 <input type="text"
+                    value={this.props.feedback.support}
+
                     onChange={(event) => this.props.handleChangefor(event, 'support')}
                 />
 

@@ -21,6 +21,7 @@ class App extends React.Component {
       support: '',
       comment: '',
     },
+    review: [''],
   }
 
   componentDidMount() {
@@ -48,11 +49,11 @@ class App extends React.Component {
     console.log('handle change for', property, event.target.value)
     this.setState({
       feedback: {
+        ...this.state.feedback, //set currentPicture object is what it is
         [property]: event.target.value
       }
     })
   }
-
 
   render() {
     return (
@@ -65,49 +66,53 @@ class App extends React.Component {
         <nav>
           <HashRouter>{/* I use HashRouter to be able to move back and forth components */}
             {/*I create each link address for each component */}
-            <Link to='/'>Home</Link> / {/*I have an Home component to start the app feedback */}
-            <Link to='/feeling'>Feeling</Link> /
+            <Link to='/'>Home</Link>  {/*I have an Home component to start the app feedback */}
+            {/* <Link to='/feeling'>Feeling</Link> /
             <Link to='/understanding'>Understanding</Link> /
             <Link to='/support'>Support</Link> /
             <Link to='/comments'>Comments</Link> /
-            <Link to='/review'>Review</Link>
+            <Link to='/review'>Review</Link> */}
 
 
 
             <Route exact path='/' component={Home} />
             <Route path='/feeling'
               render={(props) => <Feeling {...props}
-                feeling={this.state.feedback.feeling}
+
+                feedback={this.state.feedback}
                 handleChangefor={this.handleChangefor}
+                dispatch={this.props.dispatch}
               />}//sending data from state down component child
             />
             <Route path='/understanding'
               render={(props) => <Understanding {...props}
-                understanding={this.state.feedback.understanding}
+                feedback={this.state.feedback}
                 handleChangefor={this.handleChangefor}
+                dispatch={this.props.dispatch}
 
               />}
             />
             <Route path='/support'
               render={(props) => <Support {...props}
-                support={this.state.feedback.support}
+                feedback={this.state.feedback}
                 handleChangefor={this.handleChangefor}
+                dispatch={this.props.dispatch}
 
               />}
             />
             <Route path='/comments'
               render={(props) => <Comments {...props}
-                comment={this.state.feedback.comment}
+                feedback={this.state.feedback}
                 handleChangefor={this.handleChangefor}
+                dispatch={this.props.dispatch}
+
               />}
             />
             <Route path='/review'
               render={(props) => <Rev1ew {...props}
-                feeling={this.state.feedback.feeling}
-                understanding={this.state.feedback.understanding}
-                support={this.state.feedback.support}
-                comment={this.state.feedback.comment}
-
+                feedback={this.state.feedback}
+                dispatch={this.props.dispatch}
+                handleSubmitButton={this.handleSubmitButton}
                 review={this.state.review}
               />}
             />
