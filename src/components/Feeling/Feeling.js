@@ -15,10 +15,10 @@ class Feeling extends Component {
             console.log('Next clicked!')
             // handle next button to moving to understanding component
             this.props.history.push('/understanding');
-            // this.props.dispatch({
-            //     type:'feeling',
-            //     payload: this.props.feeling
-            // })
+            this.props.dispatch({
+                type:'feeling',
+                payload: this.props.feedback.feeling
+            })
         }
     }
 

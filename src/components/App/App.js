@@ -74,11 +74,6 @@ class App extends React.Component {
     })
   }
 
-  // handleSubmitButton = (event) => { // called when the submit button is pressed
-  //   console.log('submit clicked!');
-  //     event.preventDefault();
-  //     this.addFeedback();
-  // }
 
   render() {
     return (
@@ -86,6 +81,7 @@ class App extends React.Component {
         <header className="App-header">
           <h1 className="App-title">Feedback!</h1>
           <h4><i>Don't forget it!</i></h4>
+          {JSON.stringify(this.props.reduxState)}
 
         </header>
         <nav>
@@ -141,6 +137,7 @@ class App extends React.Component {
                 review={this.state.review}
                 addFeedback = {this.addFeedback}
                 state = {this.state.feedback}
+                reduxState= {this.props.reduxState}
               />}
             />
             <Route path='/success'

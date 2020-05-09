@@ -9,10 +9,10 @@ class Comment extends Component {
     handleNext = () => { // handle next button to moving to understanding component
         console.log('Next clicked!')
         this.props.history.push('/review');
-        // this.props.dispatch({
-        //     type: 'comment',
-        //     payload: this.props.comment
-        // })
+        this.props.dispatch({
+            type:'comments',
+            payload:  this.props.feedback
+        })
     }
 
     handleChangefor = () => {

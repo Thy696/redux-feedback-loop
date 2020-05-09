@@ -11,7 +11,7 @@ app.use(express.static('build'));
 /** ---------- EXPRESS ROUTES ---------- **/
 
 const feedbackRouter = require('./routes/feedback.router.js');
-app.use('/api/review', feedbackRouter);
+app.use('/submit', feedbackRouter);
 
 
 

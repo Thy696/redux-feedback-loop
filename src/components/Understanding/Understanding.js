@@ -13,10 +13,10 @@ class Understanding extends Component {
             console.log('Next clicked!')
             // handle next button to moving to understanding component
             this.props.history.push('/support');
-            // this.props.dispatch({
-            //     type:'understanding',
-            //     payload: this.props.understanding
-            // })
+            this.props.dispatch({
+                type:'understanding',
+                payload: this.props.feedback.understanding
+            })
         }
     }
 
@@ -32,7 +32,7 @@ class Understanding extends Component {
                 />
 
                 <button onClick={this.handleNextButton} >Next</button>{/*when the next button is clicked, it will switch to the support component*/}
-                {JSON.stringify(this.props.understanding)}
+                {/* {JSON.stringify(this.props.understanding)} */}
 
             </div>
         )

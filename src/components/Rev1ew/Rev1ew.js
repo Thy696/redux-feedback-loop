@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 // import SubmissionSuccess from '../ReviewItem/ReviewItem'
 
-import ReviewItem from '../ReviewItem/ReviewItem'
 
 class Rev1ew extends Component {
 
@@ -12,7 +11,7 @@ class Rev1ew extends Component {
     handleSubmit=()=>{ // handle next button to moving to understanding component
         console.log('Next clicked!')
         this.props.history.push('/success');
-        this.props.addFeedback();
+        // this.props.addFeedback();
         this.props.dispatch({ // dispatch all of data in inputs up to index
             type:'review',
             //store data inside an array
