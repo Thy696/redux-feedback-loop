@@ -15,10 +15,10 @@ class Comment extends Component {
             <div>
                 <h1>Any comment you want to leave?</h1>
                 <input type="text" 
-                value = {this.props.comments}
-                onChange={this.handleChangefor}
+                    onChange={(event) => this.props.handleChangefor(event,'comment')}
                 />
                 <button onClick={this.handleNext} >Next</button>{/*when the next button is clicked, it will switch to the review component*/}
+                {JSON.stringify(this.props.comments)}
 
             </div>
         )

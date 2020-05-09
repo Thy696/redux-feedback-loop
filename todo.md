@@ -5,4 +5,6 @@
     [x] Not allow an empty input except Comments component
     [x] Handle change for input field
 [] Get data from database and append in DOM in Review component
+    [] Create a GET request in router
+    [] Create a GET request in client
 [] Post data from client-side to server-side

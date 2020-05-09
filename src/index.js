@@ -6,19 +6,18 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-// const firstReducerInitialState = [];
-
-const firstReducer = (state, property) => {
-    console.log('in firstReducer');
-
-    return {};
+const reducerInitialState = {};
+const firstReducer = (state = reducerInitialState, property) => {
+    console.log('in firstReducer',property);
+    return state;
 }
 
-const storeInstance = createStore(firstReducer);
+
+const feedbackStore = createStore(firstReducer);
 
 ReactDOM.render(
-    <Provider store={storeInstance}>
-        <App />
+    <Provider  store={feedbackStore}>
+        <App />,
     </Provider>,
     document.getElementById('root'));
 
