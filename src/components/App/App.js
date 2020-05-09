@@ -58,16 +58,16 @@ class App extends Component {
               render={(props) => <Feeling {...props} feeling={this.state.feedback.feeling} />}//sending data from state down component child
             />
             <Route path='/understanding'
-              render={(props) => <Feeling {...props} understanding={this.state.feedback.understanding} />}
+              render={(props) => <Understanding {...props} understanding={this.state.feedback.understanding} />}
             />
             <Route path='/support'
-              render={(props) => <Feeling {...props} support={this.state.feedback.support} />}
+              render={(props) => <Support {...props} support={this.state.feedback.support} />}
             />
             <Route path='/comments'
-              render={(props) => <Feeling {...props} comment={this.state.feedback.comment} />}
+              render={(props) => <Comments {...props} comment={this.state.feedback.comment} />}
             />
             <Route path='/review'
-              render={(props) => <Feeling {...props} review={this.state.review} />}
+              render={(props) => <Review {...props} review={this.state.review} />}
             />
 
 

@@ -13,15 +13,21 @@ class Support extends Component {
                 console.log('Next clicked!')
                 // handle next button to moving to understanding component
                 this.props.history.push('/comments');
-        }
-        
+        } 
+    }
+
+    handleChangefor =() =>{
+        console.log('felling input changing')
     }
 
     render() {
         return (
             <div>
                 <h1>How well are you being supported?</h1>
-                <input type="text" />
+                <input type="text" 
+                value ={this.props.support}
+                onChange = {this.handleChangefor}
+                />
 
                 <button onClick={this.
     handleNextButton = ()=>{ // condition for the input field is not been empty

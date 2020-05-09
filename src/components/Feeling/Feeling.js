@@ -6,8 +6,6 @@ class Feeling extends Component {
         console.log('in feeling',this.props)
     }
 
- 
-    
     handleNextButton = ()=>{ // condition for the input field is not been empty
         // let this.props.feeling = 
         if(this.props.feeling === ""){
@@ -16,8 +14,11 @@ class Feeling extends Component {
                 console.log('Next clicked!')
                 // handle next button to moving to understanding component
                 this.props.history.push('/understanding');
-        }
-        
+        } 
+    }
+
+    handleChangefor =() =>{
+        console.log('felling input changing')
     }
     
 
