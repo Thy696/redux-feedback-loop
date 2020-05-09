@@ -4,7 +4,13 @@
     [x] Handle click next button to go to the next component
     [x] Not allow an empty input except Comments component
     [x] Handle change for input field
+[x] Show all data of input fields to component Review
+    [x] Handle change input
+    [x] Send datas via dispatch to index.js
+    [] Show another component for submission success page
+[] Post data from client-side to server-side and save them in database
+    [] POST request
+
 [] Get data from database and append in DOM in Review component
     [] Create a GET request in router
     [] Create a GET request in client
-[] Post data from client-side to server-side

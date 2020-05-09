@@ -10,6 +10,7 @@ import Understanding from '../Understanding/Understanding'
 import Support from '../Support/Support'
 import Comments from '../Comments/Comments'
 import Rev1ew from '../Rev1ew/Rev1ew'
+import SubmissionSuccess from '../SubmissionSuccess/SubmissionSuccess';
 
 
 
@@ -45,6 +46,24 @@ class App extends React.Component {
       })
   }
 
+  // addFeedback = () =>{
+  //   axios({
+  //     url: '/',
+  //     method: 'POST',
+  //     data: this.state.feedback, // send the data of properties in currentPicture object
+
+  //   })
+  //     .then((response) => {
+  //       console.log('in POST request');
+  //       this.getData();
+       
+  //     }).catch(err => {
+  //       alert('Error in posting data')
+  //       console.log('Error in POST request', err)
+  //     })
+  //   }
+
+
   handleChangefor = (event, property) => {
     console.log('handle change for', property, event.target.value)
     this.setState({
@@ -54,6 +73,12 @@ class App extends React.Component {
       }
     })
   }
+
+  // handleSubmitButton = (event) => { // called when the submit button is pressed
+  //   console.log('submit clicked!');
+  //     event.preventDefault();
+  //     this.addFeedback();
+  // }
 
   render() {
     return (
@@ -114,6 +139,12 @@ class App extends React.Component {
                 dispatch={this.props.dispatch}
                 handleSubmitButton={this.handleSubmitButton}
                 review={this.state.review}
+                addFeedback = {this.addFeedback}
+                state = {this.state.feedback}
+              />}
+            />
+            <Route path='/success'
+              render={(props) => <SubmissionSuccess {...props}
               />}
             />
 

@@ -9,7 +9,7 @@ class Feeling extends Component {
 
     handleNextButton = () => { // condition for the input field is not been empty
         // let this.props.feeling = 
-        if (this.props.feeling === "") {
+        if (this.props.feedback.feeling === '') {
             alert('This field is requied');
         } else {
             console.log('Next clicked!')
@@ -21,7 +21,6 @@ class Feeling extends Component {
             // })
         }
     }
-
 
     render() {
         return (
