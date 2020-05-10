@@ -1,24 +1,30 @@
 import React, { Component } from 'react';
+
+//Styling for card input feedback
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+
+
 
 class Comments extends Component {
 
     // Styling with Material-UI
 
     useStyles = makeStyles({
-        root: {
+        root1: {
             maxWidth: 345,
         },
         media: {
             height: 140,
         },
     });
+
+
+
     // End styling with Material-UI
 
 
@@ -33,6 +39,7 @@ class Comments extends Component {
             type: 'comments',
             payload: this.props.feedback
         })
+
     }
 
     handlePrevious = () => { // handle next button to moving to understanding component
@@ -47,8 +54,11 @@ class Comments extends Component {
     handleChangefor = () => {
         console.log('felling input changing')
     }
+
+    
     render() {
         const classes = this.useStyles;
+
 
         return (
             <div className="component_box">
@@ -66,7 +76,6 @@ class Comments extends Component {
                             </Typography>
                         </CardContent>
                     </CardActionArea>
-                    <CardActions>
                         <Button size="small" color="primary" onClick={this.handlePrevious}>{/*when the next button is clicked, it will switch to the support component*/}
                             Previous
                         </Button>
@@ -74,8 +83,6 @@ class Comments extends Component {
                         <Button size="small" color="primary" onClick={this.handleNext} >{/*when the next button is clicked, it will switch to the review component*/}
                             Next
                         </Button>
-
-                    </CardActions>
                 </Card>
 
 

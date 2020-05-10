@@ -3,9 +3,13 @@ import React, { Component } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
+
+//styling for snackbar
+// import Snackbar from '@material-ui/core/Snackbar';
+// import MuiAlert from '@material-ui/lab/Alert';
+
 
 
 class Rev1ew extends Component {
@@ -20,7 +24,11 @@ class Rev1ew extends Component {
             height: 140,
         },
     });
-    
+
+    //-----------------------------
+
+ 
+
     // End styling with Material-UI
 
 
@@ -42,6 +50,7 @@ class Rev1ew extends Component {
     render() {
         const classes = this.useStyles;
 
+
         return (
             <div className="component_box">
                 <Card className={classes.root}>
@@ -55,12 +64,11 @@ class Rev1ew extends Component {
                             <p>Comment: {this.props.feedback.comments}</p>
                         </CardContent>
                     </CardActionArea>
-                    <CardActions>
                         <Button size="small" color="primary" onClick={this.handleSubmit}>{/*when the next button is cpcked, it will switch to the support component*/}
                             Submit
                         </Button>
-                    </CardActions>
                 </Card>
+                
 
             </div>
 

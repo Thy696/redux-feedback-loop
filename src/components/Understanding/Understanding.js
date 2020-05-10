@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -74,16 +73,12 @@ class Understanding extends Component {
                             </Typography>
                         </CardContent>
                     </CardActionArea>
-                    <CardActions>
                         <Button size="small" color="primary" onClick={this.handlePrevious}>{/*when the next button is clicked, it will switch to the feeling component*/}
                             Previous
                         </Button>
                         <Button size="small" color="primary" onClick={this.handleNextButton} >{/*when the next button is clicked, it will switch to the support component*/}
                             Next
                         </Button>
-
-
-                    </CardActions>
                 </Card>
 
 

@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import { makeStyles } from '@material-ui/core/styles';
-// import Card from '@material-ui/core/Card';
-// import CardActionArea from '@material-ui/core/CardActionArea';
-// import CardActions from '@material-ui/core/CardActions';
-// import CardContent from '@material-ui/core/CardContent';
-// import CardMedia from '@material-ui/core/CardMedia';
-// import Button from '@material-ui/core/Button';
-// import Typography from '@material-ui/core/Typography';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
 
 class SubmissionSuccess extends Component {
 
@@ -34,12 +31,20 @@ class SubmissionSuccess extends Component {
         const classes = this.useStyles;
 
         return (
-            <div>
-                <h1>Feedback!</h1>
-                <div>
-                    <h2>Thank you!</h2>
-                    <button onClick={this.handleButton}>Leave New Feedback</button>
-                </div>
+            <div className="component_box">
+                <Card className={classes.root}>
+                    <CardActionArea>
+                        <CardContent>
+                            <h1>Feedback!</h1>
+                        </CardContent>
+                    </CardActionArea>
+
+                    <Button size="small" color="primary" onClick={this.handleButton} >{/*when the next button is clicked, it will switch to the support component*/}
+                        Leave New Feedback
+                        </Button>
+                </Card>
+
+
 
             </div>
         )

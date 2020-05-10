@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -61,12 +60,10 @@ class Feeling extends Component {
                             </Typography>
                         </CardContent>
                     </CardActionArea>
-                    <CardActions>
-                        <Button size="small" color="primary" align="right" onClick={this.handleNextButton}>
+                        <Button size="small" color="primary" onClick={this.handleNextButton}>
                             Next
                         </Button>
 
-                    </CardActions>
                 </Card>
 
                 {/* {JSON.stringify(this.props.feeling)} */}
