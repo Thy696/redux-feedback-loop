@@ -33,7 +33,8 @@ class App extends Component {
     console.log('in component did mount GET:', this.getFeedback())
   };
 
-  getFeedback = () => { // Get data from database
+  // Get data from database
+  getFeedback = () => {
     axios({
       url: '/:id',
       method: 'GET'
@@ -50,7 +51,21 @@ class App extends Component {
       })
   }
 
+  //Delete feedback in database by id
+  deleteFeedback = (id) => { //when delete button is clicked, it will delete it's feedback row by id
+    axios({
+      url: `/feedback/${id}`,
+      method: 'DELETE'
+    })
+      .then(response => {
+        console.log('in DELTE request',response);
+        this.getFeedback(); //refesh the DOM after delete
+      }).catch(err => {
+        console.log('Error in DELETE request',err)
+      })
+  }
 
+  //handle change for input field
   handleChangefor = (event, property) => { //handle change for inputs
     console.log('handle change for', property, event.target.value)
     this.setState({
@@ -129,6 +144,7 @@ class App extends Component {
               dispatch={this.props.dispatch}
               reduxState={this.props.reduxState}
               feedbacks={this.state.feedbacks}
+              deleteFeedback={this.deleteFeedback}
 
             />}//sending data from state down component child
           />

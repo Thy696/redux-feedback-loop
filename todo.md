@@ -22,4 +22,5 @@
 [x] Allow the user to go back to a previous step and change their score. Still need to disallow empty values!
 [x] Append data from database to DOM in /admin link
     [x] Get request
+[] Styling Material-UI cards, snackbars, buttons, a nav bar, icons, and/or a theme.
 

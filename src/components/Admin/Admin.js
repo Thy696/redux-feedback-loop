@@ -1,37 +1,79 @@
 import React, { Component } from 'react';
 
+import FeedbackItem from '../FeedbackItem/FeedbackItem'
+import { withStyles, makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+
+
 
 class Admin extends Component {
+    //Styling with Material-UI
+    TableCell = withStyles((theme) => ({
+        head: {
+            backgroundColor: theme.palette.common.black,
+            color: theme.palette.common.white,
+        },
+        body: {
+            fontSize: 14,
+        },
+    }))(TableCell);
 
+    StyledTableRow = withStyles((theme) => ({
+        root: {
+            '&:nth-of-type(odd)': {
+                backgroundColor: theme.palette.action.hover,
+            },
+        },
+    }))(TableRow);
+
+
+    useStyles = makeStyles({
+        table: {
+            minWidth: 700,
+        },
+    });
+    //End styling with Material-UI
 
     render() {
+        const classes = this.useStyles;
+
         return (
-            <div>
-                <h1>this is admin</h1>
-                <table className='table-feedback'>
-                    <thead>
-                        <tr>
-                            <th>Feeling</th>
-                            <th>Comprehension</th>
-                            <th>Support</th>
-                            <th>Comments</th>
-                            <th>Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.props.feedbacks.map((feedback) =>
-                            <tr key={feedback.id}>
-                                <td>{feedback.feeling}</td>
-                                <td>{feedback.understanding}</td>
-                                <td>{feedback.support}</td>
-                                <td>{feedback.comments}</td>
-                            </tr>)}
-                    </tbody>
+            <div className="table_feedback">
+                <TableContainer component={Paper}>
+                    <Table className={classes.table} aria-label="customized table">
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>Feeling</TableCell>
+                                <TableCell >Understanding</TableCell>
+                                <TableCell >Support</TableCell>
+                                <TableCell >Comment</TableCell>
+                                <TableCell >Delete</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                                {this.props.feedbacks.map((feedback) => {
+                                    return (
+                                        <TableRow key={feedback.id}>
+                                            <FeedbackItem
+                                                key={feedback.id}
+                                                feedback={feedback}
+                                                deleteFeedback={this.props.deleteFeedback}
+                                            />
+                                        </TableRow>
+                                    )
+                                })}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+                {/* {JSON.stringify(this.props.feedbacks)} */}
 
-                </table>
-                {JSON.stringify(this.props.dispatch)}
-
-            </div>
+            </div >
         )
     }
 }

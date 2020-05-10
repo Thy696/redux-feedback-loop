@@ -17,6 +17,7 @@ const reducerInitialState = { //crate an state to store the data
     feedbacks: [],
 };
 
+
 const feedbackReducer = (state = reducerInitialState, action) => {
     console.log('in feedbackReducer', action);
     if (action.type === 'comments') {
@@ -33,11 +34,11 @@ const feedbackReducer = (state = reducerInitialState, action) => {
             ...state,
             feedback: feedbackObj // set state equal feedbackObj variable
         }
-    }
+    }// End if action comments
 
     if (action.type === 'submit') {
         //if type of action is submit 
-        console.log('in review', action.payload)
+        console.log('in review action', action.payload)
         console.log('state in index:', state)
 
         let feedbackObjToSend = { //create an new variable and assign it to an object
@@ -48,7 +49,7 @@ const feedbackReducer = (state = reducerInitialState, action) => {
             comments: state.feedback.comments,
         }
 
-        Axios.post('/:id', feedbackObjToSend) // Response the post 
+        Axios.post('/:id', feedbackObjToSend) // POST request
             .then(response => {
                 console.log('back from POST: ', response.data)
             }).catch(err => {
@@ -56,24 +57,17 @@ const feedbackReducer = (state = reducerInitialState, action) => {
                 alert('Error in post request')
             })
 
-    }
-
-
+    } // End if action submit
     return state;
 }
 
 const feedbackStore = createStore(feedbackReducer);
-// const store2 = createStore(reducerInitialState);
 
 
 ReactDOM.render(
 
-    <Provider store={feedbackStore}
-    // store2 = {store2}
-    >
+    <Provider store={feedbackStore}>
         <App
-        // feedbacks={reducerInitialState.feedbacks}
-
         />,
     </Provider>,
     document.getElementById('root'));
