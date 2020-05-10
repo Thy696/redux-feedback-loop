@@ -25,15 +25,15 @@ class App extends Component {
       support: '',
       comments: '',
     },
-    feedbacks: [''],
+    feedbacks: [],
   }
 
   componentDidMount() {
     console.log('in componentDidMount', this.props);
-    console.log('in componentDidMount getData', this.getFeedback);
+    console.log('in component did mount GET:', this.getFeedback())
   };
 
-  getFeedback = () => {
+  getFeedback = () => { // Get data from database
     axios({
       url: '/:id',
       method: 'GET'
@@ -41,7 +41,7 @@ class App extends Component {
       .then(response => {
         console.log('back from GET:', response.data)
         this.setState({
-          feedbacks: response.data
+          feedbacks: response.data // set the state obj equal the datas from database
         })
         console.log('in feedbacks', this.state.feedbacks)
       }).catch(err => {
@@ -50,11 +50,12 @@ class App extends Component {
       })
   }
 
-  handleChangefor = (event, property) => {
+
+  handleChangefor = (event, property) => { //handle change for inputs
     console.log('handle change for', property, event.target.value)
     this.setState({
       feedback: {
-        ...this.state.feedback, //set currentPicture object is what it is
+        ...this.state.feedback,
         [property]: event.target.value
       }
     })
@@ -76,11 +77,9 @@ class App extends Component {
             <Link to='/review'>Review</Link> */}
 
 
-
           <Route exact path='/' component={Home} />
           <Route path='/feeling'
             render={(props) => <Feeling {...props}
-
               feedback={this.state.feedback}
               handleChangefor={this.handleChangefor}
               dispatch={this.props.dispatch}
@@ -136,9 +135,8 @@ class App extends Component {
 
         </HashRouter>
         {/* </nav> */}
-        {JSON.stringify(this.props.reduxState)}
-        {JSON.stringify(this.props.feedbacks)}
-        {/* {JSON.stringify(this.props.store)} */}
+        {/* {JSON.stringify(this.props.reduxState)}
+        {JSON.stringify(this.props.feedbacks)} */}
 
 
       </div>

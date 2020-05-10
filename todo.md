@@ -20,6 +20,6 @@
 
 
 [x] Allow the user to go back to a previous step and change their score. Still need to disallow empty values!
-[] Append data from database to DOM in /admin link
-    [] Get request
+[x] Append data from database to DOM in /admin link
+    [x] Get request
 

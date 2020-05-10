@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
-import registerServiceWorker from './registerServiceWorker';
+// import registerServiceWorker from './registerServiceWorker';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import Axios from 'axios';
@@ -58,18 +58,6 @@ const feedbackReducer = (state = reducerInitialState, action) => {
 
     }
 
-    // Axios.get('/:id')
-    //     .then(response => {
-    //         console.log('back from GET:', response.data)
-    //         state = {
-    //             ...state,
-    //             feedbacks: response.data
-    //         }
-    //         console.log('in feedbacks', state.feedbacks)
-    //     }).catch(err => {
-    //         console.log('Error in GET:', err)
-    //         alert('Error in get request')
-    //     })
 
     return state;
 }
@@ -90,4 +78,4 @@ ReactDOM.render(
     </Provider>,
     document.getElementById('root'));
 
-registerServiceWorker();
+// registerServiceWorker();

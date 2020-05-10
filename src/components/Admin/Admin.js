@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
-import FeedbackItem from '../FeedbackItem/FeedbackItem'
 
 class Admin extends Component {
 
@@ -10,7 +8,7 @@ class Admin extends Component {
         return (
             <div>
                 <h1>this is admin</h1>
-                <table>
+                <table className='table-feedback'>
                     <thead>
                         <tr>
                             <th>Feeling</th>
@@ -31,7 +29,7 @@ class Admin extends Component {
                     </tbody>
 
                 </table>
-                {JSON.stringify(this.props.feedbacks)}
+                {JSON.stringify(this.props.dispatch)}
 
             </div>
         )

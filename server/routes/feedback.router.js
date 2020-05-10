@@ -5,7 +5,7 @@ const pool = require('../modules/pool');
 
 router.get('/', (req, res) => { //Go to database and get all of the rows that we have
     console.log('GET /review');
-    pool.query('SELECT * from "feedback" ORDER BY id')
+    pool.query('SELECT * from "feedback" ORDER BY id DESC')
     .then((result) => {
         console.log('Get rows: ', result.rows)
         res.send(result.rows);//send it to client
