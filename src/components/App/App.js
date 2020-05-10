@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import { connect } from 'react-redux';
@@ -17,7 +17,7 @@ import Admin from '../Admin/Admin'
 
 
 
-class App extends React.Component {
+class App extends Component {
   state = { //Create an state to store all of data that user input
     feedback: {
       feeling: '',
@@ -25,15 +25,30 @@ class App extends React.Component {
       support: '',
       comments: '',
     },
-    review: [''],
+    feedbacks: [''],
   }
 
   componentDidMount() {
     console.log('in componentDidMount', this.props);
-    console.log('in componentDidMount getData', this.getData);
+    console.log('in componentDidMount getData', this.getFeedback);
   };
 
-
+  getFeedback = () => {
+    axios({
+      url: '/:id',
+      method: 'GET'
+    })
+      .then(response => {
+        console.log('back from GET:', response.data)
+        this.setState({
+          feedbacks: response.data
+        })
+        console.log('in feedbacks', this.state.feedbacks)
+      }).catch(err => {
+        console.log('Error in GET:', err)
+        alert('Error in get request')
+      })
+  }
 
   handleChangefor = (event, property) => {
     console.log('handle change for', property, event.target.value)
@@ -44,17 +59,17 @@ class App extends React.Component {
       }
     })
   }
-  
+
 
   render() {
     return (
       <div className="App">
         <Header />
         {/* <nav> */}
-          <HashRouter>{/* I use HashRouter to be able to move back and forth components */}
-            {/*I create each link address for each component */}
-            {/* <Link to='/'>Home</Link>  I have an Home component to start the app feedback */}
-            {/* <Link to='/feeling'>Feeling</Link> /
+        <HashRouter>{/* I use HashRouter to be able to move back and forth components */}
+          {/*I create each link address for each component */}
+          {/* <Link to='/'>Home</Link>  I have an Home component to start the app feedback */}
+          {/* <Link to='/feeling'>Feeling</Link> /
             <Link to='/understanding'>Understanding</Link> /
             <Link to='/support'>Support</Link> /
             <Link to='/comments'>comments</Link> /
@@ -62,64 +77,69 @@ class App extends React.Component {
 
 
 
-            <Route exact path='/' component={Home} />
-            <Route path='/feeling'
-              render={(props) => <Feeling {...props}
+          <Route exact path='/' component={Home} />
+          <Route path='/feeling'
+            render={(props) => <Feeling {...props}
 
-                feedback={this.state.feedback}
-                handleChangefor={this.handleChangefor}
-                dispatch={this.props.dispatch}
-              />}//sending data from state down component child
-            />
-            <Route path='/understanding'
-              render={(props) => <Understanding {...props}
-                feedback={this.state.feedback}
-                handleChangefor={this.handleChangefor}
-                dispatch={this.props.dispatch}
+              feedback={this.state.feedback}
+              handleChangefor={this.handleChangefor}
+              dispatch={this.props.dispatch}
+            />}//sending data from state down component child
+          />
+          <Route path='/understanding'
+            render={(props) => <Understanding {...props}
+              feedback={this.state.feedback}
+              handleChangefor={this.handleChangefor}
+              dispatch={this.props.dispatch}
 
-              />}
-            />
-            <Route path='/support'
-              render={(props) => <Support {...props}
-                feedback={this.state.feedback}
-                handleChangefor={this.handleChangefor}
-                dispatch={this.props.dispatch}
+            />}
+          />
+          <Route path='/support'
+            render={(props) => <Support {...props}
+              feedback={this.state.feedback}
+              handleChangefor={this.handleChangefor}
+              dispatch={this.props.dispatch}
 
-              />}
-            />
-            <Route path='/comments'
-              render={(props) => <Comments {...props}
-                feedback={this.state.feedback}
-                handleChangefor={this.handleChangefor}
-                dispatch={this.props.dispatch}
+            />}
+          />
+          <Route path='/comments'
+            render={(props) => <Comments {...props}
+              feedback={this.state.feedback}
+              handleChangefor={this.handleChangefor}
+              dispatch={this.props.dispatch}
 
-              />}
-            />
-            <Route path='/review'
-              render={(props) => <Rev1ew {...props}
-                feedback={this.state.feedback}
-                dispatch={this.props.dispatch}
-                handleSubmitButton={this.handleSubmitButton}
-                review={this.state.review}
-                addFeedback = {this.addFeedback}
-                state = {this.state}
-                reduxState= {this.props.reduxState}
-              />}
-            />
-            <Route path='/success'
-              render={(props) => <SubmissionSuccess {...props}
-              />}
-            />
-            <Route path='/admin'
-              render={(props) => <Admin {...props}
-                dispatch={this.props.dispatch}
-                reduxState = {this.props.reduxState}
-              />}//sending data from state down component child
-            />
+            />}
+          />
+          <Route path='/review'
+            render={(props) => <Rev1ew {...props}
+              feedback={this.state.feedback}
+              dispatch={this.props.dispatch}
+              handleSubmitButton={this.handleSubmitButton}
+              review={this.state.review}
+              addFeedback={this.addFeedback}
+              state={this.state}
+              reduxState={this.props.reduxState}
+            />}
+          />
+          <Route path='/success'
+            render={(props) => <SubmissionSuccess {...props}
+            />}
+          />
+          <Route path='/admin'
+            render={(props) => <Admin {...props}
+              dispatch={this.props.dispatch}
+              reduxState={this.props.reduxState}
+              feedbacks={this.state.feedbacks}
 
+            />}//sending data from state down component child
+          />
 
-          </HashRouter>
+        </HashRouter>
         {/* </nav> */}
+        {JSON.stringify(this.props.reduxState)}
+        {JSON.stringify(this.props.feedbacks)}
+        {/* {JSON.stringify(this.props.store)} */}
+
 
       </div>
     );

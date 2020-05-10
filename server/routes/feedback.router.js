@@ -15,31 +15,24 @@ router.get('/', (req, res) => { //Go to database and get all of the rows that we
     });
 })
 
-router.post('/', async (req, res) => {
-    const client = await pool.connect();
-    try {
-        const {
-            feeling,
-            understanding,
-            support,
-            comments,
-           
-        } = req.body;
-        // await client.query('BEGIN')
-        client.query(`INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
-        VALUES ($1,$2,$3,$4);
-        
-        RETURNING id;`, [feeling, understanding, support, comments]);
-        // await client.query('COMMIT')
-        res.sendStatus(201);
+router.post('/', (req, res) => { // use POST to sent the data that user input from database
+    console.log(req.params);
+    const newFeedback = req.body;
+    console.log(req.body);
 
-
-    } catch (error) {
-        console.log('Error POST /submit', error);
-        res.sendStatus(500);
-    
-    }
-});
+    const queryString = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
+    VALUES ($1, $2, $3, $4);`
+    // the $1, $2 get substituted with the values from the array below
+    pool.query(queryString, [newFeedback.feeling, newFeedback.understanding,newFeedback.support,newFeedback.comments])
+        .then((result => {
+            console.log('sending this: ', result);
+            res.sendStatus(200);
+        })).catch(err => {
+            console.log('Error in POST request', err)
+            res.sendStatus(500);
+        })
+    // res.sendStatus(200);
+}); // END PUT Route
 
 
 

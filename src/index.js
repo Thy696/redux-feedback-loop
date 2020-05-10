@@ -28,7 +28,6 @@ const feedbackReducer = (state = reducerInitialState, action) => {
             understanding: action.payload.understanding,
             support: action.payload.support,
             comments: action.payload.comments,
-
         }
         state = {
             ...state,
@@ -48,7 +47,6 @@ const feedbackReducer = (state = reducerInitialState, action) => {
             support: state.feedback.support,
             comments: state.feedback.comments,
         }
-        // console.log('in feedbackObjToSend is:', feedbackObjToSend)
 
         Axios.post('/:id', feedbackObjToSend) // Response the post 
             .then(response => {
@@ -58,28 +56,37 @@ const feedbackReducer = (state = reducerInitialState, action) => {
                 alert('Error in post request')
             })
 
-        Axios.get('/:id', feedbackObjToSend)
-        .then(response =>{
-            console.log('back from GET:',response.data)
-            state = {
-                ...state,
-                feedbacks: response.data
-            }
-          
-        }).catch(err =>{
-            console.log('Error in GET:', err)
-            alert('Error in get request')
-
-        })
     }
+
+    // Axios.get('/:id')
+    //     .then(response => {
+    //         console.log('back from GET:', response.data)
+    //         state = {
+    //             ...state,
+    //             feedbacks: response.data
+    //         }
+    //         console.log('in feedbacks', state.feedbacks)
+    //     }).catch(err => {
+    //         console.log('Error in GET:', err)
+    //         alert('Error in get request')
+    //     })
+
     return state;
 }
 
 const feedbackStore = createStore(feedbackReducer);
+// const store2 = createStore(reducerInitialState);
+
 
 ReactDOM.render(
-    <Provider store={feedbackStore}>
-        <App />,
+
+    <Provider store={feedbackStore}
+    // store2 = {store2}
+    >
+        <App
+        // feedbacks={reducerInitialState.feedbacks}
+
+        />,
     </Provider>,
     document.getElementById('root'));
 

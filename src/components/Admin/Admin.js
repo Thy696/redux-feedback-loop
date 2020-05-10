@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+
 import FeedbackItem from '../FeedbackItem/FeedbackItem'
 
 class Admin extends Component {
+
+
     render() {
         return (
             <div>
@@ -17,13 +21,17 @@ class Admin extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <FeedbackItem 
-                        />
-
+                        {this.props.feedbacks.map((feedback) =>
+                            <tr key={feedback.id}>
+                                <td>{feedback.feeling}</td>
+                                <td>{feedback.understanding}</td>
+                                <td>{feedback.support}</td>
+                                <td>{feedback.comments}</td>
+                            </tr>)}
                     </tbody>
 
                 </table>
-                {JSON.stringify(this.props.reduxState)}
+                {JSON.stringify(this.props.feedbacks)}
 
             </div>
         )
