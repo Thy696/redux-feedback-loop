@@ -5,7 +5,7 @@ const pool = require('../modules/pool');
 
 router.get('/', (req, res) => { //Go to database and get all of the rows that we have
     console.log('GET /review');
-    pool.query('SELECT * from "feedback"')
+    pool.query('SELECT * from "feedback" ORDER BY id')
     .then((result) => {
         console.log('Get rows: ', result.rows)
         res.send(result.rows);//send it to client
@@ -22,21 +22,22 @@ router.post('/', async (req, res) => {
             feeling,
             understanding,
             support,
-            comment,
-            flagged,
-            date,
-            
+            comments,
+           
         } = req.body;
-        await client.query('BEGIN')
-        client.query(`INSERT INTO "orders" ("feeling", "understanding", "support", "comment", "flagged", "date")
-        VALUES ($1, $2, $3, $4, $5, $6)
-        RETURNING id;`, [feeling, understanding, support, comment, flagged, date]);
+        // await client.query('BEGIN')
+        client.query(`INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
+        VALUES ($1,$2,$3,$4);
+        
+        RETURNING id;`, [feeling, understanding, support, comments]);
+        // await client.query('COMMIT')
         res.sendStatus(201);
+
+
     } catch (error) {
         console.log('Error POST /submit', error);
         res.sendStatus(500);
-    } finally {
-        client.release()
+    
     }
 });
 

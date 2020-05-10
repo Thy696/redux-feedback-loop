@@ -17,3 +17,12 @@
   font-size: large;
 }
 
+/* -----------------------------Component---------------------------------------- */
+
+.component_box{
+  border: 1px solid black;
+  margin: 50px 400px;
+  padding-top: 30px;
+  padding-bottom: 70px;
+
+}

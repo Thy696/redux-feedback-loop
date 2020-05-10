@@ -24,11 +24,10 @@ class Feeling extends Component {
 
     render() {
         return (
-            <div>
-                <h1>How are you felling today?</h1>
+            <div className= "component_box">
+                <h1 >How are you felling today?</h1>
                 <input type="number" placeholder="Your feeling"
                     value={this.props.feedback.feeling}
-
                     onChange={(event) => this.props.handleChangefor(event, 'feeling')}// use the handle change for from component parents (App.js) to handle on change for inpput field
                 />
                 <button onClick={this.handleNextButton} >Next</button>{/*when the next button is clicked, it will switch to the understanding component*/}

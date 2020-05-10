@@ -11,6 +11,9 @@ import Support from '../Support/Support'
 import Comments from '../Comments/Comments'
 import Rev1ew from '../Rev1ew/Rev1ew'
 import SubmissionSuccess from '../SubmissionSuccess/SubmissionSuccess';
+import Header from '../Header/Header'
+import Admin from '../Admin/Admin'
+
 
 
 
@@ -20,7 +23,7 @@ class App extends React.Component {
       feeling: '',
       understanding: '',
       support: '',
-      comment: '',
+      comments: '',
     },
     review: [''],
   }
@@ -30,38 +33,6 @@ class App extends React.Component {
     console.log('in componentDidMount getData', this.getData);
   };
 
-  getData = () => {
-    axios({
-      url: '/api/review',
-      method: 'GET',
-    })
-      .then((response) => {
-        console.log('in GET request', response.data);
-        this.setState({
-          review: response.data
-        })
-      }).catch(err => {
-        alert('Error in getting data')
-        console.log('Error in GET request', err)
-      })
-  }
-
-  // addFeedback = () =>{
-  //   axios({
-  //     url: '/',
-  //     method: 'POST',
-  //     data: this.state.feedback, // send the data of properties in currentPicture object
-
-  //   })
-  //     .then((response) => {
-  //       console.log('in POST request');
-  //       this.getData();
-       
-  //     }).catch(err => {
-  //       alert('Error in posting data')
-  //       console.log('Error in POST request', err)
-  //     })
-  //   }
 
 
   handleChangefor = (event, property) => {
@@ -73,25 +44,20 @@ class App extends React.Component {
       }
     })
   }
-
+  
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Feedback!</h1>
-          <h4><i>Don't forget it!</i></h4>
-          {JSON.stringify(this.props.reduxState)}
-
-        </header>
-        <nav>
+        <Header />
+        {/* <nav> */}
           <HashRouter>{/* I use HashRouter to be able to move back and forth components */}
             {/*I create each link address for each component */}
-            <Link to='/'>Home</Link>  {/*I have an Home component to start the app feedback */}
+            {/* <Link to='/'>Home</Link>  I have an Home component to start the app feedback */}
             {/* <Link to='/feeling'>Feeling</Link> /
             <Link to='/understanding'>Understanding</Link> /
             <Link to='/support'>Support</Link> /
-            <Link to='/comments'>Comments</Link> /
+            <Link to='/comments'>comments</Link> /
             <Link to='/review'>Review</Link> */}
 
 
@@ -136,7 +102,7 @@ class App extends React.Component {
                 handleSubmitButton={this.handleSubmitButton}
                 review={this.state.review}
                 addFeedback = {this.addFeedback}
-                state = {this.state.feedback}
+                state = {this.state}
                 reduxState= {this.props.reduxState}
               />}
             />
@@ -144,12 +110,16 @@ class App extends React.Component {
               render={(props) => <SubmissionSuccess {...props}
               />}
             />
+            <Route path='/admin'
+              render={(props) => <Admin {...props}
+                dispatch={this.props.dispatch}
+                reduxState = {this.props.reduxState}
+              />}//sending data from state down component child
+            />
 
 
           </HashRouter>
-        </nav>
-
-
+        {/* </nav> */}
 
       </div>
     );

@@ -7,95 +7,73 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import Axios from 'axios';
 
-const reducerInitialState = {
+const reducerInitialState = { //crate an state to store the data
     feedback: {
         feeling: '',
         understanding: '',
         support: '',
-        comment: '',
-        flagged: false,
-        // date: '',
+        comments: '',
     },
+    feedbacks: [],
 };
+
 const feedbackReducer = (state = reducerInitialState, action) => {
     console.log('in feedbackReducer', action);
-    // if (action.type === 'feeling') {
-    //     console.log('in review', action.payload);
-    //     let feedbackFeeling = {
-    //         feeling: action.payload,
-    //     }
-    //     state = {
-    //         ...state,
-    //         feedback: {
-    //             feeling: feedbackFeeling
-    //         }
-    //     }
-    // }
-    // if (action.type === 'understanding') {
-    //     console.log('in review', action.payload)
-    //     let feedbackUnderstanding = {
-    //         understanding: action.payload,
-    //     }
-    //     state = {
-    //         ...state,
-    //         feedback: {
-    //             understanding: feedbackUnderstanding
-    //         }
-    //     }
-    // }
-    // if (action.type === 'support') {
-    //     console.log('in review', action.payload)
-    //     let feedbackSupport = {
-    //         support: action.payload,
-    //     }
-    //     state = {
-    //         ...state,
-    //         feedback: {
-    //             support: feedbackSupport
-    //         }
-    //     }
-    // }
     if (action.type === 'comments') {
+        // in the last input field 'comment', if type of action is comments => set properties inside state above equal 
+        //the payload actions that I sent from each components
         console.log('in review', action.payload)
-        let feedbackObj = {
+        let feedbackObj = { //create a new variable and assign it equal an object store datas
             feeling: action.payload.feeling,
             understanding: action.payload.understanding,
             support: action.payload.support,
-            comment: action.payload.comment,
-            flagged: false,
-            date: new Date(),
+            comments: action.payload.comments,
+
         }
         state = {
             ...state,
-            feedback: feedbackObj
+            feedback: feedbackObj // set state equal feedbackObj variable
         }
     }
-    if (action.type === 'review') {
+
+    if (action.type === 'submit') {
+        //if type of action is submit 
         console.log('in review', action.payload)
         console.log('state in index:', state)
 
-        let feedbackObjToSend = {
+        let feedbackObjToSend = { //create an new variable and assign it to an object
+            //have properties is set for properties inside state above
             feeling: state.feedback.feeling,
             understanding: state.feedback.understanding,
             support: state.feedback.support,
-            comment: state.feedback.comment,
-            flagged: false,
-            // date: new Date(),
+            comments: state.feedback.comments,
         }
-        console.log('in feedbackObjToSend is:', feedbackObjToSend)
+        // console.log('in feedbackObjToSend is:', feedbackObjToSend)
 
-        Axios.post('/submit', feedbackObjToSend)
+        Axios.post('/:id', feedbackObjToSend) // Response the post 
             .then(response => {
                 console.log('back from POST: ', response.data)
             }).catch(err => {
                 console.log('Error in POST:', err);
                 alert('Error in post request')
             })
+
+        Axios.get('/:id', feedbackObjToSend)
+        .then(response =>{
+            console.log('back from GET:',response.data)
+            state = {
+                ...state,
+                feedbacks: response.data
+            }
+          
+        }).catch(err =>{
+            console.log('Error in GET:', err)
+            alert('Error in get request')
+
+        })
     }
     return state;
-
 }
-
 
 const feedbackStore = createStore(feedbackReducer);
 

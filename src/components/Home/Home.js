@@ -10,8 +10,8 @@ class Home extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Home</h1>
+            <div className= "home_component">
+                {/* <h1>Home</h1> */}
                 <h2>Start giving feedback</h2>
                 <button onClick = {this.handleGo}>Go</button>{/*when the Go button is clicked, it will switch to the feeling component*/}
             </div>
