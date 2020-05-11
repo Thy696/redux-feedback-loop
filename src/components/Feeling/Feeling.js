@@ -6,7 +6,6 @@ import TextField from '@material-ui/core/TextField';
 
 import Box from '@material-ui/core/Box';
 
-
 class Feeling extends Component {
 
     componentDidMount() {
@@ -38,18 +37,18 @@ class Feeling extends Component {
                     <h2>How are you felling today?</h2>
                 </Card>
 
-                    <Box mb={2}> {/* Margin top for buttons */}
-                        <form noValidate autoComplete="off">
-                            <TextField
-                                type="number"
-                                required id="standard-required"
-                                label="Required"
-                                value={this.props.feedback.feeling}
-                                onChange={(event) => this.props.handleChangefor(event, 'feeling')}
-                            // use the handle change for from component parents (App.js) to handle on change for inpput field
-                            />
-                        </form>
-                    </Box>
+                <Box mb={2}> {/* Margin top for buttons */}
+                    <form noValidate autoComplete="off">
+                        <TextField
+                            type="number"
+                            required id="standard-required"
+                            label="Required"
+                            value={this.props.feedback.feeling}
+                            onChange={(event) => this.props.handleChangefor(event, 'feeling')}
+                        // use the handle change for from component parents (App.js) to handle on change for inpput field
+                        />
+                    </form>
+                </Box>
 
                 <Box mt={2}> {/* Margin top for buttons */}
                     <Button size="small" color="primary"

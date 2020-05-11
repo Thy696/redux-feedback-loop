@@ -7,10 +7,7 @@ import TextField from '@material-ui/core/TextField';
 
 import Box from '@material-ui/core/Box';
 
-
 class Support extends Component {
-
-
     componentDidMount() {
         console.log('in support', this.props);
     }
@@ -41,33 +38,29 @@ class Support extends Component {
         }
     }
 
-
     render() {
-    
+
         return (
             <div className="component_box">
                 {/* Styling for card feedback  */}
-
                 <Card>
                     <h2> How well are you being supported?</h2>
                 </Card>
-
-                    <Box mb={2} mt={4}> {/* Margin top for buttons */}
-                        <form noValidate autoComplete="off">
-                            <TextField
-                                type="number"
-                                required id="standard-required"
-                                label="Required"
-                                // defaultValue="Your feeling"
-                                value={this.props.feedback.support}
-                                onChange={(event) => this.props.handleChangefor(event, 'support')}
-                            // use the handle change for from component parents (App.js) to handle on change for inpput field
-                            />
-                        </form>
-                    </Box>
-
+                <Box mb={2} mt={4}> {/* Margin top for buttons */}
+                    <form noValidate autoComplete="off">
+                        <TextField
+                            type="number"
+                            required id="standard-required"
+                            label="Required"
+                            // defaultValue="Your feeling"
+                            value={this.props.feedback.support}
+                            onChange={(event) => this.props.handleChangefor(event, 'support')}
+                        // use the handle change for from component parents (App.js) to handle on change for inpput field
+                        />
+                    </form>
+                </Box>
                 <Box mt={2}> {/* Margin top for buttons */}
-                <Button size="small" color="primary" variant="outlined"
+                    <Button size="small" color="primary" variant="outlined"
                         onClick={this.handlePrevious}>{/*when the next button is clicked, it will switch to the comment component*/}
                             PREVIOUS
                         </Button>

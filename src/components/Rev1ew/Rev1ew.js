@@ -6,13 +6,6 @@ import Button from '@material-ui/core/Button';
 
 import Box from '@material-ui/core/Box';
 
-
-//styling for snackbar
-// import Snackbar from '@material-ui/core/Snackbar';
-// import MuiAlert from '@material-ui/lab/Alert';
-
-
-
 class Rev1ew extends Component {
 
     componentDidMount() {
@@ -35,7 +28,6 @@ class Rev1ew extends Component {
         this.props.history.push('/comments');
     }
     render() {
-
         return (
             <div className="component_box">
                 <Card>
@@ -56,11 +48,8 @@ class Rev1ew extends Component {
                         onClick={this.handleSubmit}>{/*when the next button is cpcked, it will switch to the support component*/}
                             SUBMIT
                         </Button>
-
                 </Box>
-
             </div>
-
         )
     }
 }

@@ -17,7 +17,6 @@ const reducerInitialState = { //crate an state to store the data
     feedbacks: [],
 };
 
-
 const feedbackReducer = (state = reducerInitialState, action) => {
     console.log('in feedbackReducer', action);
     if (action.type === 'comments') {

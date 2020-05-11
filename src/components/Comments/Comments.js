@@ -9,7 +9,6 @@ import TextField from '@material-ui/core/TextField';
 
 import Box from '@material-ui/core/Box';
 
-
 class Comments extends Component {
 
     componentDidMount() {
@@ -36,43 +35,38 @@ class Comments extends Component {
     }
 
     render() {
-
         return (
             <div className="component_box">
                 {/* Styling for card feedback  */}
                 <Card>
                     <h2>Any comment you want to leave?</h2>
                 </Card>
-
-                    <Box mb={2} mt={4}> {/* Margin top for buttons */}
-                        <form noValidate autoComplete="off">
-                            <TextField
-                                type="text"
-                                id="outlined-multiline-static"
-                                multiline
-                                rows={8}
-                                variant="outlined"
-                                label="Required"
-                                value={this.props.feedback.comments}
-                                onChange={(event) => this.props.handleChangefor(event, 'comments')}
-                            // use the handle change for from component parents (App.js) to handle on change for inpput field
-                            />
-                        </form>
-                    </Box>
-
+                <Box mb={2} mt={4}> {/* Margin top for buttons */}
+                    <form noValidate autoComplete="off">
+                        <TextField
+                            type="text"
+                            id="outlined-multiline-static"
+                            multiline
+                            rows={8}
+                            variant="outlined"
+                            label="Required"
+                            value={this.props.feedback.comments}
+                            onChange={(event) => this.props.handleChangefor(event, 'comments')}
+                        // use the handle change for from component parents (App.js) to handle on change for inpput field
+                        />
+                    </form>
+                </Box>
                 <Box mt={2}> {/* Margin top for buttons */}
-                <Button size="small" color="primary" variant="outlined"
+                    <Button size="small" color="primary" variant="outlined"
                         onClick={this.handlePrevious}>{/*when the next button is clicked, it will switch to the support component*/}
                             PREVIOUS
-                        </Button>
-
+                    </Button>
                     <Button size="small" color="primary" variant="outlined"
                         onClick={this.handleNext} >{/*when the next button is clicked, it will switch to the review component*/}
                             NEXT
-                        </Button>
+                    </Button>
                 </Box>
                 {/* {JSON.stringify(this.props.comments)} */}
-
             </div>
         )
     }

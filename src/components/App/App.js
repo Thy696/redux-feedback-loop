@@ -14,9 +14,6 @@ import SubmissionSuccess from '../SubmissionSuccess/SubmissionSuccess';
 import Header from '../Header/Header'
 import Admin from '../Admin/Admin'
 
-
-
-
 class App extends Component {
   state = { //Create an state to store all of data that user input
     feedback: {
@@ -85,7 +82,6 @@ class App extends Component {
       }
     })
   }
-
 
   render() {
     return (

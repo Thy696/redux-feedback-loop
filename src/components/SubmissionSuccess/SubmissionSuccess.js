@@ -5,19 +5,15 @@ import CardContent from '@material-ui/core/CardContent';
 
 import Box from '@material-ui/core/Box';
 
-
 class SubmissionSuccess extends Component {
-
 
     handleButton = () => {
         console.log('Next clicked!')
         // handle next button to moving to understanding component
         this.props.history.push('/');
-
     }
 
     render() {
-
         return (
             <div className="component_box">
                 {/* Styling for card feedback  */}
@@ -32,9 +28,6 @@ class SubmissionSuccess extends Component {
                         </CardActionArea>
                     </Card>
                 </Box>
-
-
-
             </div >
         )
     }
