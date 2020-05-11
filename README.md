@@ -1,7 +1,5 @@
 # Project Name
-
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
-
+Feedback 
 ## Description
 
   Create an app that allows the user to send feedback to the database. And as the admin, I can see what the user input from a link address named Admin. 
