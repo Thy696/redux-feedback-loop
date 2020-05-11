@@ -14,7 +14,7 @@ class Feeling extends Component {
     }
 
     //handle NEXT button
-    handleNextButton = () => {
+    handleNext = () => {
         // condition for the input field is not been empty
         if (this.props.feedback.feeling === '') {
             alert('This field is requied');
@@ -54,7 +54,7 @@ class Feeling extends Component {
                 <Box mt={2}> {/* Margin top for buttons */}
                     <Button size="small" color="primary"
                         variant="outlined"
-                        onClick={this.handleNextButton}> {/*when the next button is clicked, it will switch to the understanding component*/}
+                        onClick={this.handleNext}> {/*when the next button is clicked, it will switch to the understanding component*/}
                         NEXT
                     </Button>
                 </Box>

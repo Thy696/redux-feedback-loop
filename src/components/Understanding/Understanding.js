@@ -14,7 +14,7 @@ class Understanding extends Component {
     componentDidMount() {
         console.log('in understanding', this.props);
     }
-    handleNextButton = () => { // condition for the input field is not been empty
+    handleNext = () => { // condition for the input field is not been empty
         if (this.props.feedback.understanding === "") {
             alert('This field is requied');
         } else {
@@ -66,7 +66,7 @@ class Understanding extends Component {
                             PREVIOUS
                         </Button>
                     <Button size="small" color="primary" variant="outlined"
-                        onClick={this.handleNextButton} >{/*when the next button is clicked, it will switch to the support component*/}
+                        onClick={this.handleNext} >{/*when the next button is clicked, it will switch to the support component*/}
                             NEXT
                         </Button>
                 </Box>

@@ -30,6 +30,10 @@ class Rev1ew extends Component {
         this.props.handleClearInput();
     }
 
+    handlePrevious = () => { // handle next button to moving to understanding component
+        console.log('Next clicked!')
+        this.props.history.push('/comments');
+    }
     render() {
 
         return (
@@ -38,16 +42,21 @@ class Rev1ew extends Component {
                     <h1>Giving feedback</h1>
                 </Card>
                 <CardContent>
-                    <p >Feeling: {this.props.feedback.feeling}</p>
+                    <p>Feeling: {this.props.feedback.feeling}</p>
                     <p>Understanding: {this.props.feedback.understanding}</p>
                     <p>Support: {this.props.feedback.support}</p>
                     <p>Comment: {this.props.feedback.comments}</p>
                 </CardContent>
                 <Box mt={2}> {/* Margin top for buttons */}
                     <Button size="small" color="primary" variant="outlined"
+                        onClick={this.handlePrevious}>{/*when the next button is cpcked, it will switch to the support component*/}
+                            PREVIOUS
+                        </Button>
+                    <Button size="small" color="primary" variant="outlined"
                         onClick={this.handleSubmit}>{/*when the next button is cpcked, it will switch to the support component*/}
                             SUBMIT
                         </Button>
+
                 </Box>
 
             </div>
