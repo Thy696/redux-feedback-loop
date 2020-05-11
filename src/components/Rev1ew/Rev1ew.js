@@ -25,13 +25,11 @@ class Rev1ew extends Component {
         })
         this.props.handleClearInput();
         Swal.fire({
-            title: 'Adding feedback successful!',
-            showClass: {
-              popup: 'animate__animated animate__fadeInDown'
-            },
-            hideClass: {
-              popup: 'animate__animated animate__fadeOutUp'
-            }
+            position: 'top',
+            icon: 'success',
+            title: 'Your feedback has been saved',
+            showConfirmButton: false,
+            timer: 1500
           })
           
     }
