@@ -14,10 +14,16 @@ class Home extends Component {
         this.props.history.push('/feeling');
     }
 
+    comBackHomeClick = () =>{
+        console.log('clicked!');
+        this.props.history.push('/feeling')
+    }
     render() {
 
         return (
             <div>
+                 
+
                 <Box mt={4}>
                     <Card  onClick={this.handleClick}>
                         <CardActionArea>

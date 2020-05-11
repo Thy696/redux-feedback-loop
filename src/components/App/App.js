@@ -72,7 +72,7 @@ class App extends Component {
     })
   }
 
-  handleClearInput= () => {
+  handleClearInput = () => {
     this.setState({
       feedback: {
         feeling: '',
@@ -86,10 +86,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
         <HashRouter>{/* I use HashRouter to be able to move back and forth components */}
+          {/* Click on Feedback word in header to comback home */}
+          <Route path='/'
+            render={(props) => <Header {...props}
+              feedback={this.state.feedback}
+            />}
+          />
 
           <Route exact path='/' component={Home} />
+
           <Route path='/feeling'
             render={(props) => <Feeling {...props}
               feedback={this.state.feedback}
@@ -126,7 +132,7 @@ class App extends Component {
               handleSubmitButton={this.handleSubmitButton}
               addFeedback={this.addFeedback}
               state={this.state}
-              handleClearInput = {this.handleClearInput}
+              handleClearInput={this.handleClearInput}
             />}
           />
           <Route path='/success'
@@ -141,6 +147,8 @@ class App extends Component {
               deleteFeedback={this.deleteFeedback}
             />}//sending data from state down component child
           />
+          {/* <Route exact path='/' component={Header} /> */}
+
         </HashRouter>
         {/* {JSON.stringify(this.props.reduxState)}
         {JSON.stringify(this.props.feedbacks)} */}
