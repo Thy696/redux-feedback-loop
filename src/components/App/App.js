@@ -47,7 +47,6 @@ class App extends Component {
         console.log('in feedbacks', this.state.feedbacks)
       }).catch(err => {
         console.log('Error in GET:', err)
-        alert('Error in get request')
       })
   }
 

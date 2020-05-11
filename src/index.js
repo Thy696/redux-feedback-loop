@@ -54,7 +54,6 @@ const feedbackReducer = (state = reducerInitialState, action) => {
                 console.log('back from POST: ', response.data)
             }).catch(err => {
                 console.log('Error in POST:', err);
-                alert('Error in post request')
             })
 
     } // End if action submit

@@ -35,10 +35,6 @@ class Understanding extends Component {
             console.log('Next clicked!')
             // handle next button to moving to understanding component
             this.props.history.push('/feeling');
-            this.props.dispatch({
-                type: 'understanding',
-                payload: this.props.feedback.understanding
-            })
         }
     }
 

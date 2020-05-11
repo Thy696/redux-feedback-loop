@@ -19,7 +19,6 @@ class Rev1ew extends Component {
         console.log('in review ', this.props);
     }
 
-
     handleSubmit = () => { // handle next button to moving to understanding component
         console.log('Next clicked!')
         this.props.history.push('/success');
@@ -30,8 +29,6 @@ class Rev1ew extends Component {
         })
         this.props.handleClearInput();
     }
-
-    
 
     render() {
 
