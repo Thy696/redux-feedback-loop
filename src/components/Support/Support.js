@@ -16,7 +16,7 @@ class Support extends Component {
         // let this.props.feeling = 
         if (this.props.feedback.support === "") {
             alert('This field is requied');
-        }else if(this.props.feedback.feeling >= 6){
+        } else if (this.props.feedback.feeling >= 6) {
             alert('Please give a rating 1-5')
         } else {
             console.log('Next clicked!')
@@ -40,6 +40,13 @@ class Support extends Component {
         }
     }
 
+    //Be able to key press enter to go next
+    keyPressed = (event) => {
+        if (event.key === "Enter") {
+            this.handleNext()
+        }
+    }
+
     render() {
 
         return (
@@ -55,9 +62,9 @@ class Support extends Component {
                             type="number"
                             required id="standard-required"
                             label="Required"
-                            // defaultValue="Your feeling"
                             value={this.props.feedback.support}
                             onChange={(event) => this.props.handleChangefor(event, 'support')}
+                            onKeyPress={this.keyPressed}
                         // use the handle change for from component parents (App.js) to handle on change for inpput field
                         />
                     </form>

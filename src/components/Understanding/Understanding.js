@@ -15,9 +15,9 @@ class Understanding extends Component {
     handleNext = () => { // condition for the input field is not been empty
         if (this.props.feedback.understanding === "") {
             alert('This field is requied');
-        } else if(this.props.feedback.feeling >= 6){
+        } else if (this.props.feedback.feeling >= 6) {
             alert('Please give a rating 1-5')
-        }else {
+        } else {
             console.log('Next clicked!')
             // handle next button to moving to understanding component
             this.props.history.push('/support');
@@ -39,6 +39,13 @@ class Understanding extends Component {
         }
     }
 
+    //Be able to key press enter to go next
+    keyPressed = (event) => {
+        if (event.key === "Enter") {
+            this.handleNext()
+        }
+    }
+
     render() {
         return (
             <div className="component_box understanding_component" >
@@ -47,14 +54,14 @@ class Understanding extends Component {
                 </Card>
                 <Box mb={2} mt={4}> {/* Margin top for buttons */}
                     <form noValidate autoComplete="off">
-                    <h5>Giving a rating 1-5</h5>
+                        <h5>Giving a rating 1-5</h5>
                         <TextField
                             type="number"
                             required id="standard-required"
                             label="Required"
-                            // defaultValue="Your feeling"
                             value={this.props.feedback.understanding}
                             onChange={(event) => this.props.handleChangefor(event, 'understanding')}
+                            onKeyPress={this.keyPressed}
                         // use the handle change for from component parents (App.js) to handle on change for inpput field
                         />
                     </form>

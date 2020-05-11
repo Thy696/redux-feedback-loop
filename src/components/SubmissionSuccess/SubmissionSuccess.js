@@ -13,6 +13,12 @@ class SubmissionSuccess extends Component {
         this.props.history.push('/');
     }
 
+    keyPressed=(event)=>{
+        if (event.key === "Enter") {
+            this.handleNext()
+        }
+    }
+
     render() {
         return (
             <div className="component_box">

@@ -41,6 +41,7 @@ class Rev1ew extends Component {
         this.props.history.push('/comments');
     }
 
+
     render() {
         return (
             <div className="component_box">
@@ -59,7 +60,8 @@ class Rev1ew extends Component {
                             BACK
                         </Button>
                     <Button size="small" color="primary" variant="contained"
-                        onClick={this.handleSubmit}>{/*when the next button is cpcked, it will switch to the support component*/}
+                        onClick={this.handleSubmit}
+                        >{/*when the next button is cpcked, it will switch to the support component*/}
                             SUBMIT
                         </Button>
                 </Box>

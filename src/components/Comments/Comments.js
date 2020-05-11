@@ -33,6 +33,13 @@ class Comments extends Component {
     handleChangefor = () => {
         console.log('felling input changing')
     }
+    
+    //Be able to key press enter to go next
+    keyPressed=(event)=>{
+        if (event.key === "Enter") {
+            this.handleNext()
+        }
+    }
 
     render() {
         return (
@@ -52,7 +59,9 @@ class Comments extends Component {
                             label="Required"
                             value={this.props.feedback.comments}
                             onChange={(event) => this.props.handleChangefor(event, 'comments')}
-                        // use the handle change for from component parents (App.js) to handle on change for inpput field
+                            onKeyPress={this.keyPressed}
+
+                            // use the handle change for from component parents (App.js) to handle on change for inpput field
                         />
                     </form>
                 </Box>

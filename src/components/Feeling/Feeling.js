@@ -28,7 +28,13 @@ class Feeling extends Component {
                 payload: this.props.feedback.feeling
             })
         }
+    }
 
+    //Be able to key press enter to go next
+    keyPressed=(event)=>{
+        if (event.key === "Enter") {
+            this.handleNext()
+        }
     }
 
     render() {
@@ -49,6 +55,7 @@ class Feeling extends Component {
                             required id="standard-required"
                             label="Required"
                             value={this.props.feedback.feeling}
+                            onKeyPress={this.keyPressed}
                             onChange={(event) => this.props.handleChangefor(event, 'feeling')}
                         // use the handle change for from component parents (App.js) to handle on change for inpput field
                         />
@@ -58,7 +65,10 @@ class Feeling extends Component {
                 <Box mt={2}> {/* Margin top for buttons */}
                     <Button size="small" color="primary"
                         variant="contained"
-                        onClick={this.handleNext}> {/*when the next button is clicked, it will switch to the understanding component*/}
+                        onClick={this.handleNext}
+
+                        > {/*when the next button is clicked, it will switch to the understanding component*/}
+
                         NEXT
                     </Button>
                 </Box>
