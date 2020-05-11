@@ -1,23 +1,12 @@
 import React, { Component } from "react";
-import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
+
+import Box from '@material-ui/core/Box';
+
 
 class SubmissionSuccess extends Component {
-
-    // Styling with Material-UI
-
-    useStyles = makeStyles({
-        root: {
-            maxWidth: 345,
-        },
-        media: {
-            height: 140,
-        },
-    });
-    // End styling with Material-UI
 
 
     handleButton = () => {
@@ -28,25 +17,25 @@ class SubmissionSuccess extends Component {
     }
 
     render() {
-        const classes = this.useStyles;
 
         return (
             <div className="component_box">
-                <Card className={classes.root}>
-                    <CardActionArea>
-                        <CardContent>
-                            <h1>Feedback!</h1>
-                        </CardContent>
-                    </CardActionArea>
+                {/* Styling for card feedback  */}
+                <h1>Thank you!</h1>
+                <Box mt={3}>
+                    <Card onClick={this.handleButton}>
+                        <CardActionArea>
+                            <CardContent>
+                                <h2 >Leave New Feedback</h2>
+                                {/*when the next button is clicked, it will switch to the home component*/}
+                            </CardContent>
+                        </CardActionArea>
+                    </Card>
+                </Box>
 
-                    <Button size="small" color="primary" onClick={this.handleButton} >{/*when the next button is clicked, it will switch to the support component*/}
-                        Leave New Feedback
-                        </Button>
-                </Card>
 
 
-
-            </div>
+            </div >
         )
     }
 }

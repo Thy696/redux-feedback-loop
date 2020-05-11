@@ -43,19 +43,41 @@ class Admin extends Component {
     render() {
         const classes = this.useStyles;
 
+         //Styling with Material-UI
+   const StyledTableCell = withStyles((theme) => ({
+        head: {
+            backgroundColor: theme.palette.common.black,
+            color: theme.palette.common.white,
+        },
+        body: {
+            fontSize: 14,
+        },
+    }))(TableCell);
+
+    const StyledTableRow = withStyles((theme) => ({
+        root: {
+            '&:nth-of-type(odd)': {
+                backgroundColor: theme.palette.action.hover,
+            },
+        },
+    }))(TableRow);
+
         return (
             <div className="table_feedback">
                 {/* Use Material-UI to styling table  */}
+                <div>
+                    <h1>Feedback Results!</h1>
+                </div>
                 <TableContainer component={Paper}>
                     <Table className={classes.table} aria-label="customized table">
                         <TableHead>
-                            <this.StyledTableRow>
-                                <TableCell>Feeling</TableCell>
-                                <TableCell >Understanding</TableCell>
-                                <TableCell >Support</TableCell>
-                                <TableCell >Comment</TableCell>
-                                <TableCell >Delete</TableCell>
-                            </this.StyledTableRow>
+                            <StyledTableRow>
+                                <StyledTableCell>Feeling</StyledTableCell>
+                                <StyledTableCell >Understanding</StyledTableCell>
+                                <StyledTableCell >Support</StyledTableCell>
+                                <StyledTableCell >Comment</StyledTableCell>
+                                <StyledTableCell >Delete</StyledTableCell>
+                            </StyledTableRow>
                         </TableHead>
                         <TableBody>
                                 {this.props.feedbacks.map((feedback) => {

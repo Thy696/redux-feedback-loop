@@ -5,7 +5,7 @@ class Header extends Component {
 
     handleClickHome = () => {
         console.log('in handleClickHome');
-        // this.props.history.push('/');
+        this.props.history.push('/');
     }
 
     render() {
