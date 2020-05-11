@@ -10,11 +10,11 @@ Feedback
 
 ## Screen shot
 
-![mockup one](projectInterface/pic_1.png)
+![mockup one](Screen_shot/pic_1.png)
 
-![mockup one](projectInterface/pic_2.png)
+![mockup one](Screen_shot/pic_2.png)
 
-![mockup one](projectInterface/pic_3.png)
+![mockup one](Screen_shot/pic_3.png)
 
 ## Installation
 1. Create a database named your database name,
