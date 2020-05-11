@@ -86,7 +86,7 @@ class Rev1ew extends Component {
                         component="button"
                         variant="body2"
                         onClick={this.handleEditComment}>
-                        Comment: {this.props.feedback.comments}
+                        Comments: {this.props.feedback.comments}
                     </Link><br />
 
                 </CardContent>

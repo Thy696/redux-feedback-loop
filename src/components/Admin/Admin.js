@@ -62,7 +62,7 @@ class Admin extends Component {
                                 <StyledTableCell>FEELING</StyledTableCell>
                                 <StyledTableCell >UNDERSTANDING</StyledTableCell>
                                 <StyledTableCell >SUPPORT</StyledTableCell>
-                                <StyledTableCell >COMMENT</StyledTableCell>
+                                <StyledTableCell >COMMENTS</StyledTableCell>
                                 <StyledTableCell >DELETE</StyledTableCell>
                             </StyledTableRow>
                         </TableHead>

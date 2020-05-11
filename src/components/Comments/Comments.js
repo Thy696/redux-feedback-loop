@@ -46,7 +46,7 @@ class Comments extends Component {
             <div className="component_box">
                 {/* Styling for card feedback  */}
                 <Card>
-                    <h2>Any comment you want to leave?</h2>
+                    <h2>Any comments you want to leave?</h2>
                 </Card>
                 <Box mb={2} mt={4}> {/* Margin top for buttons */}
                     <form noValidate autoComplete="off">
@@ -56,7 +56,7 @@ class Comments extends Component {
                             multiline
                             rows={8}
                             variant="outlined"
-                            label="Required"
+                            label="Comment"
                             value={this.props.feedback.comments}
                             onChange={(event) => this.props.handleChangefor(event, 'comments')}
                             onKeyPress={this.keyPressed}
