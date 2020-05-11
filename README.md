@@ -26,7 +26,7 @@ Feedback
 
 ## Built With
 
-HTML, CSS, React, JSON, Node.js, Postico(database), Material-UI, SweetAlert2
+HTML, CSS, React, Redux, SQL, JSON, Node.js, Postico(database), Material-UI, SweetAlert2
 
 ## Acknowledgement
 

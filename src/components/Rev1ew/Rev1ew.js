@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
+import Link from '@material-ui/core/Link';
 
 import Box from '@material-ui/core/Box';
 
@@ -30,8 +31,8 @@ class Rev1ew extends Component {
             title: 'Your feedback has been saved',
             showConfirmButton: false,
             timer: 1500
-          })
-          
+        })
+
     }
 
     handlePrevious = () => { // handle next button to moving to understanding component
@@ -39,6 +40,19 @@ class Rev1ew extends Component {
         this.props.history.push('/comments');
     }
 
+    //handle edit input in components 
+    handleEditFeeling = () => {
+        this.props.history.push('/feeling');
+    }
+    handleEditUnderstanding = () => {
+        this.props.history.push('/understanding');
+    }
+    handleEditSupport = () => {
+        this.props.history.push('/support');
+    }
+    handleEditComment = () => {
+        this.props.history.push('/comments');
+    }
 
     render() {
         return (
@@ -47,10 +61,34 @@ class Rev1ew extends Component {
                     <h1>Review Your Feedback</h1>
                 </Card>
                 <CardContent>
-                    <p>Feeling: {this.props.feedback.feeling}</p>
-                    <p>Understanding: {this.props.feedback.understanding}</p>
-                    <p>Support: {this.props.feedback.support}</p>
-                    <p>Comment: {this.props.feedback.comments}</p>
+                    <Link
+                        component="button"
+                        variant="body2"
+                        onClick={this.handleEditFeeling}>
+                        Feeling: {this.props.feedback.feeling}
+                    </Link><br />
+
+                    <Link
+                        component="button"
+                        variant="body2"
+                        onClick={this.handleEditUnderstanding}>
+                        Understanding: {this.props.feedback.understanding}
+                    </Link><br />
+
+                    <Link
+                        component="button"
+                        variant="body2"
+                        onClick={this.handleEditSupport}>
+                        Support: {this.props.feedback.support}
+                    </Link><br />
+
+                    <Link
+                        component="button"
+                        variant="body2"
+                        onClick={this.handleEditComment}>
+                        Comment: {this.props.feedback.comments}
+                    </Link><br />
+
                 </CardContent>
                 <Box mt={2}> {/* Margin top for buttons */}
                     <Button size="small" color="primary" variant="outlined"
@@ -59,7 +97,7 @@ class Rev1ew extends Component {
                         </Button>
                     <Button size="small" color="primary" variant="contained"
                         onClick={this.handleSubmit}
-                        >{/*when the next button is cpcked, it will switch to the support component*/}
+                    >{/*when the next button is cpcked, it will switch to the support component*/}
                             SUBMIT
                         </Button>
                 </Box>
