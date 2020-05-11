@@ -17,6 +17,8 @@ class Feeling extends Component {
         // condition for the input field is not been empty
         if (this.props.feedback.feeling === '') {
             alert('This field is requied');
+        } else if (this.props.feedback.feeling >= 6) {
+            alert('Please give a rating 1-5')
         } else {
             console.log('Next clicked!')
             // handle next button to moving to component understanding 
@@ -26,6 +28,7 @@ class Feeling extends Component {
                 payload: this.props.feedback.feeling
             })
         }
+
     }
 
     render() {
@@ -39,6 +42,8 @@ class Feeling extends Component {
 
                 <Box mb={2}> {/* Margin top for buttons */}
                     <form noValidate autoComplete="off">
+                        <h5>Giving a rating 1-5</h5>
+
                         <TextField
                             type="number"
                             required id="standard-required"
@@ -52,7 +57,7 @@ class Feeling extends Component {
 
                 <Box mt={2}> {/* Margin top for buttons */}
                     <Button size="small" color="primary"
-                        variant="outlined"
+                        variant="contained"
                         onClick={this.handleNext}> {/*when the next button is clicked, it will switch to the understanding component*/}
                         NEXT
                     </Button>

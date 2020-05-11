@@ -16,6 +16,8 @@ class Support extends Component {
         // let this.props.feeling = 
         if (this.props.feedback.support === "") {
             alert('This field is requied');
+        }else if(this.props.feedback.feeling >= 6){
+            alert('Please give a rating 1-5')
         } else {
             console.log('Next clicked!')
             // handle next button to moving to understanding component
@@ -48,6 +50,7 @@ class Support extends Component {
                 </Card>
                 <Box mb={2} mt={4}> {/* Margin top for buttons */}
                     <form noValidate autoComplete="off">
+                        <h5>Giving a rating 1-5</h5>
                         <TextField
                             type="number"
                             required id="standard-required"
@@ -62,9 +65,9 @@ class Support extends Component {
                 <Box mt={2}> {/* Margin top for buttons */}
                     <Button size="small" color="primary" variant="outlined"
                         onClick={this.handlePrevious}>{/*when the next button is clicked, it will switch to the comment component*/}
-                            PREVIOUS
+                            BACK
                         </Button>
-                    <Button size="small" color="primary" variant="outlined"
+                    <Button size="small" color="primary" variant="contained"
                         onClick={this.handleNext}>{/*when the next button is clicked, it will switch to the understanding component*/}
                             NEXT
                         </Button>

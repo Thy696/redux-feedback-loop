@@ -17,7 +17,7 @@ class SubmissionSuccess extends Component {
         return (
             <div className="component_box">
                 {/* Styling for card feedback  */}
-                <h2>THANK YOU !</h2>
+                <h2>THANK YOU!</h2>
                 <Box mt={3}>
                     <Card onClick={this.handleButton}>
                         <CardActionArea>

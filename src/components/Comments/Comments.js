@@ -59,9 +59,9 @@ class Comments extends Component {
                 <Box mt={2}> {/* Margin top for buttons */}
                     <Button size="small" color="primary" variant="outlined"
                         onClick={this.handlePrevious}>{/*when the next button is clicked, it will switch to the support component*/}
-                            PREVIOUS
+                            BACK
                     </Button>
-                    <Button size="small" color="primary" variant="outlined"
+                    <Button size="small" color="primary" variant="contained"
                         onClick={this.handleNext} >{/*when the next button is clicked, it will switch to the review component*/}
                             NEXT
                     </Button>

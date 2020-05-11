@@ -15,7 +15,6 @@ import Paper from '@material-ui/core/Paper';
 class Admin extends Component {
     //Styling with Material-UI
 
-
     useStyles = makeStyles({
         table: {
             minWidth: 700,

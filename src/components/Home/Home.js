@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+
 
 import Box from '@material-ui/core/Box';
 
@@ -20,7 +22,7 @@ class Home extends Component {
                     <Card  onClick={this.handleClick}>
                         <CardActionArea>
                             <CardContent>
-                                <h2>Start giving feedback</h2>
+                                <Button variant="contained" color="primary" >Start giving feedback</Button>
                             </CardContent>
                         </CardActionArea>
                         {/*when "Start giving feedback" is clicked, it will switch to the feeling component*/}
