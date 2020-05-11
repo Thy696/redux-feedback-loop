@@ -93,7 +93,6 @@ class App extends Component {
               feedback={this.state.feedback}
             />}
           />
-
           <Route exact path='/' component={Home} />
 
           <Route path='/feeling'
