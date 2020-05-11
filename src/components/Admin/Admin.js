@@ -15,17 +15,17 @@ import Paper from '@material-ui/core/Paper';
 class Admin extends Component {
     //Styling with Material-UI
 
-  
+
     useStyles = makeStyles({
         table: {
             minWidth: 700,
         },
     });
-  
+
     //End styling with Material-UI
 
     render() {
-      
+
 
         const classes = this.useStyles;
 
@@ -59,8 +59,8 @@ class Admin extends Component {
                     <Table className={classes.table} aria-label="customized table">
                         <TableHead>
                             <StyledTableRow>
-                                <StyledTableCell>FEELING</StyledTableCell>
-                                <StyledTableCell >UNDERSTANDING</StyledTableCell>
+                                <StyledTableCell>FEELINGS</StyledTableCell>
+                                <StyledTableCell >COMPREHENSION</StyledTableCell>
                                 <StyledTableCell >SUPPORT</StyledTableCell>
                                 <StyledTableCell >COMMENTS</StyledTableCell>
                                 <StyledTableCell >DELETE</StyledTableCell>
@@ -78,6 +78,14 @@ class Admin extends Component {
                                     </StyledTableRow>
                                 )
                             })}
+                            <StyledTableRow>
+                                <TableCell></TableCell>
+                                <TableCell></TableCell>
+                                <TableCell></TableCell>
+                                <TableCell></TableCell>
+                                <TableCell></TableCell>
+                            </StyledTableRow>
+
                         </TableBody>
                     </Table>
                 </TableContainer>

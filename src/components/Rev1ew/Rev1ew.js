@@ -65,7 +65,7 @@ class Rev1ew extends Component {
                         component="button"
                         variant="body2"
                         onClick={this.handleEditFeeling}>
-                        Feeling: {this.props.feedback.feeling}
+                        Feelings: {this.props.feedback.feeling}
                     </Link><br />
 
                     <Link
