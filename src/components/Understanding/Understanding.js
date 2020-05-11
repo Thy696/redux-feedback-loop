@@ -15,7 +15,7 @@ class Understanding extends Component {
     handleNext = () => { // condition for the input field is not been empty
         if (this.props.feedback.understanding === "") {
             alert('This field is requied');
-        } else if (this.props.feedback.feeling >= 6) {
+        } else if (this.props.feedback.understanding >= 6) {
             alert('Please give a rating 1-5')
         } else {
             console.log('Next clicked!')

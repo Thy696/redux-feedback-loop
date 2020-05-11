@@ -16,7 +16,7 @@ class Support extends Component {
         // let this.props.feeling = 
         if (this.props.feedback.support === "") {
             alert('This field is requied');
-        } else if (this.props.feedback.feeling >= 6) {
+        } else if (this.props.feedback.support >= 6) {
             alert('Please give a rating 1-5')
         } else {
             console.log('Next clicked!')

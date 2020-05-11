@@ -11,7 +11,6 @@ import Swal from 'sweetalert2'
 class FeedbackItem extends Component {
     //Styling with Material-UI
 
-
     useStyles = makeStyles((theme) => ({
         margin: {
             margin: theme.spacing(1),
@@ -21,7 +20,6 @@ class FeedbackItem extends Component {
         },
     }));
 
-   
     //End styling with Material-UI
 
 //handle delete feedback with SweetAlert2
@@ -84,7 +82,7 @@ class FeedbackItem extends Component {
                     className={classes.margin} 
                     onClick={() => this.handleDeleteBtn(this.props.feedback.id)}
                     >
-                        <DeleteIcon fontSize="large" />
+                        <DeleteIcon fontSize="medium" />
                     </IconButton>
 
                 </TableCell>
