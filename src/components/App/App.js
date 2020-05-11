@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import { connect } from 'react-redux';
-import { HashRouter, Route, Link } from 'react-router-dom'
+import { HashRouter, Route } from 'react-router-dom'
 
 import Home from '../Home/Home'
 import Feeling from '../Feeling/Feeling'
@@ -58,10 +58,10 @@ class App extends Component {
       method: 'DELETE'
     })
       .then(response => {
-        console.log('in DELTE request',response);
+        console.log('in DELTE request', response);
         this.getFeedback(); //refesh the DOM after delete
       }).catch(err => {
-        console.log('Error in DELETE request',err)
+        console.log('Error in DELETE request', err)
       })
   }
 
@@ -76,21 +76,23 @@ class App extends Component {
     })
   }
 
+  handleClearInput= () => {
+    this.setState({
+      feedback: {
+        feeling: '',
+        understanding: '',
+        support: '',
+        comments: '',
+      }
+    })
+  }
+
 
   render() {
     return (
       <div className="App">
         <Header />
-        {/* <nav> */}
         <HashRouter>{/* I use HashRouter to be able to move back and forth components */}
-          {/*I create each link address for each component */}
-          {/* <Link to='/'>Home</Link>  I have an Home component to start the app feedback */}
-          {/* <Link to='/feeling'>Feeling</Link> /
-            <Link to='/understanding'>Understanding</Link> /
-            <Link to='/support'>Support</Link> /
-            <Link to='/comments'>comments</Link> /
-            <Link to='/review'>Review</Link> */}
-
 
           <Route exact path='/' component={Home} />
           <Route path='/feeling'
@@ -105,7 +107,6 @@ class App extends Component {
               feedback={this.state.feedback}
               handleChangefor={this.handleChangefor}
               dispatch={this.props.dispatch}
-
             />}
           />
           <Route path='/support'
@@ -121,7 +122,6 @@ class App extends Component {
               feedback={this.state.feedback}
               handleChangefor={this.handleChangefor}
               dispatch={this.props.dispatch}
-
             />}
           />
           <Route path='/review'
@@ -129,10 +129,9 @@ class App extends Component {
               feedback={this.state.feedback}
               dispatch={this.props.dispatch}
               handleSubmitButton={this.handleSubmitButton}
-              review={this.state.review}
               addFeedback={this.addFeedback}
               state={this.state}
-              reduxState={this.props.reduxState}
+              handleClearInput = {this.handleClearInput}
             />}
           />
           <Route path='/success'
@@ -145,12 +144,9 @@ class App extends Component {
               reduxState={this.props.reduxState}
               feedbacks={this.state.feedbacks}
               deleteFeedback={this.deleteFeedback}
-
             />}//sending data from state down component child
           />
-
         </HashRouter>
-        {/* </nav> */}
         {/* {JSON.stringify(this.props.reduxState)}
         {JSON.stringify(this.props.feedbacks)} */}
 

@@ -15,7 +15,7 @@ class Home extends Component {
     render() {
 
         return (
-            <div className="home_component component_box">
+            <div>
                 <Box mt={4}>
                     <Card  onClick={this.handleClick}>
                         <CardActionArea>

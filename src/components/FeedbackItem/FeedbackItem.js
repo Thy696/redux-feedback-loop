@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import TableCell from '@material-ui/core/TableCell';
 
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -21,6 +21,7 @@ class FeedbackItem extends Component {
         },
     }));
 
+   
     //End styling with Material-UI
 
     handleDeleteBtn = () => {
@@ -30,8 +31,6 @@ class FeedbackItem extends Component {
     }
 
     render() {
-
-
         const classes = this.useStyles;
 
         return (
@@ -50,8 +49,10 @@ class FeedbackItem extends Component {
                     >
                         <DeleteIcon fontSize="large" />
                     </IconButton>
+
                 </TableCell>
                 {/* {JSON.stringify(this.props.feedback)} */}
+
             </>
         )
     }

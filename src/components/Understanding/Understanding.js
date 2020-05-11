@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 
 //styling for input field
 import TextField from '@material-ui/core/TextField';
@@ -43,21 +42,14 @@ class Understanding extends Component {
         }
     }
 
-
-
     render() {
- 
-
         return (
             <div className="component_box understanding_component" >
-                {/* Styling for card feedback  */}
-                
 
                 <Card>
                     <h2>How well are you understanding the content?</h2>
                 </Card>
 
-                <Typography variant="body2" color="textSecondary">
                     <Box mb={2} mt={4}> {/* Margin top for buttons */}
                         <form noValidate autoComplete="off">
                             <TextField
@@ -71,16 +63,15 @@ class Understanding extends Component {
                             />
                         </form>
                     </Box>
-                </Typography>
 
                 <Box mt={2}> {/* Margin top for buttons */}
                 <Button size="small" color="primary" variant="outlined"
                         onClick={this.handlePrevious}>{/*when the next button is clicked, it will switch to the feeling component*/}
-                            Previous
+                            PREVIOUS
                         </Button>
                     <Button size="small" color="primary" variant="outlined"
                         onClick={this.handleNextButton} >{/*when the next button is clicked, it will switch to the support component*/}
-                            Next
+                            NEXT
                         </Button>
                 </Box>
                 {/* {JSON.stringify(this.props.understanding)} */}

@@ -14,23 +14,6 @@ import Paper from '@material-ui/core/Paper';
 
 class Admin extends Component {
     //Styling with Material-UI
-    StyledTableCell = withStyles((theme) => ({
-        head: {
-            backgroundColor: theme.palette.common.black,
-            color: theme.palette.common.white,
-        },
-        body: {
-            fontSize: 14,
-        },
-    }))(TableCell);
-
-    StyledTableRow = withStyles((theme) => ({
-        root: {
-            '&:nth-of-type(odd)': {
-                backgroundColor: theme.palette.action.hover,
-            },
-        },
-    }))(TableRow);
 
 
     useStyles = makeStyles({
@@ -38,29 +21,33 @@ class Admin extends Component {
             minWidth: 700,
         },
     });
+
+  
     //End styling with Material-UI
 
     render() {
+
         const classes = this.useStyles;
 
-         //Styling with Material-UI
-   const StyledTableCell = withStyles((theme) => ({
-        head: {
-            backgroundColor: theme.palette.common.black,
-            color: theme.palette.common.white,
-        },
-        body: {
-            fontSize: 14,
-        },
-    }))(TableCell);
 
-    const StyledTableRow = withStyles((theme) => ({
-        root: {
-            '&:nth-of-type(odd)': {
-                backgroundColor: theme.palette.action.hover,
+        //Styling table with Material-UI
+        const StyledTableCell = withStyles((theme) => ({
+            head: {
+                backgroundColor: theme.palette.common.black,
+                color: theme.palette.common.white,
             },
-        },
-    }))(TableRow);
+            body: {
+                fontSize: 14,
+            },
+        }))(TableCell);
+
+        const StyledTableRow = withStyles((theme) => ({
+            root: {
+                '&:nth-of-type(odd)': {
+                    backgroundColor: theme.palette.action.hover,
+                },
+            },
+        }))(TableRow);
 
         return (
             <div className="table_feedback">
@@ -72,25 +59,25 @@ class Admin extends Component {
                     <Table className={classes.table} aria-label="customized table">
                         <TableHead>
                             <StyledTableRow>
-                                <StyledTableCell>Feeling</StyledTableCell>
-                                <StyledTableCell >Understanding</StyledTableCell>
-                                <StyledTableCell >Support</StyledTableCell>
-                                <StyledTableCell >Comment</StyledTableCell>
-                                <StyledTableCell >Delete</StyledTableCell>
+                                <StyledTableCell>FEELING</StyledTableCell>
+                                <StyledTableCell >UNDERSTANDING</StyledTableCell>
+                                <StyledTableCell >SUPPORT</StyledTableCell>
+                                <StyledTableCell >COMMENT</StyledTableCell>
+                                <StyledTableCell >DELETE</StyledTableCell>
                             </StyledTableRow>
                         </TableHead>
                         <TableBody>
-                                {this.props.feedbacks.map((feedback) => {
-                                    return (
-                                        <TableRow key={feedback.id}>
-                                            <FeedbackItem
-                                                key={feedback.id}
-                                                feedback={feedback}
-                                                deleteFeedback={this.props.deleteFeedback}
-                                            />
-                                        </TableRow>
-                                    )
-                                })}
+                            {this.props.feedbacks.map((feedback) => {
+                                return (
+                                    <StyledTableRow key={feedback.id}>
+                                        <FeedbackItem
+                                            key={feedback.id}
+                                            feedback={feedback}
+                                            deleteFeedback={this.props.deleteFeedback}
+                                        />
+                                    </StyledTableRow>
+                                )
+                            })}
                         </TableBody>
                     </Table>
                 </TableContainer>

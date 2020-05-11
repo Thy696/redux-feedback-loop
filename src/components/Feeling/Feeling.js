@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 //styling for input field
 import TextField from '@material-ui/core/TextField';
 
@@ -39,7 +38,6 @@ class Feeling extends Component {
                     <h2>How are you felling today?</h2>
                 </Card>
 
-                <Typography variant="body2" color="textSecondary">
                     <Box mb={2}> {/* Margin top for buttons */}
                         <form noValidate autoComplete="off">
                             <TextField
@@ -52,7 +50,6 @@ class Feeling extends Component {
                             />
                         </form>
                     </Box>
-                </Typography>
 
                 <Box mt={2}> {/* Margin top for buttons */}
                     <Button size="small" color="primary"
