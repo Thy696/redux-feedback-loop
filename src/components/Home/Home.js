@@ -14,23 +14,20 @@ class Home extends Component {
         this.props.history.push('/feeling');
     }
 
-    comBackHomeClick = () =>{
-        console.log('clicked!');
-        this.props.history.push('/feeling')
-    }
     render() {
 
         return (
             <div>
-                 
-
-                <Box mt={4}>
-                    <Card  onClick={this.handleClick}>
-                        <CardActionArea>
-                            <CardContent>
-                                <Button variant="contained" color="primary" >Start giving feedback</Button>
-                            </CardContent>
-                        </CardActionArea>
+                <Box mt={4} ml={50} mr={50}>
+                    <Card>
+                        {/* <CardActionArea> */}
+                        <CardContent>
+                            <h4>How are you feeling today? Let give us some feedback.</h4>
+                            <Button variant="contained" color="primary"
+                                onClick={this.handleClick}
+                            >Start giving feedback</Button>
+                        </CardContent>
+                        {/* </CardActionArea>  */}
                         {/*when "Start giving feedback" is clicked, it will switch to the feeling component*/}
 
                     </Card>
